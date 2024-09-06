@@ -1,0 +1,20 @@
+<mat-list-item>
+  <h6 matListItemTitle>
+    {{ this.name }}
+    <p
+      matListItemLine
+      class="quantity-container"
+      style="display: inline; float: right"
+    >
+      <button mat-button (click)="this.minus()">-</button>
+      <span>{{ this.quantity }}</span>
+      <button mat-button (click)="this.plus()">+</button>
+    </p>
+  </h6>
+
+  @if (this.description.length > 0) {
+    <p matListItemLine>
+      {{ this.description }}
+    </p>
+  }
+</mat-list-item>

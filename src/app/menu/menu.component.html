@@ -1,0 +1,34 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <h3>Drinks</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        @for (drink of drinkItems; track drink.name) {
+          <app-menu-item
+            [name]="drink.name"
+            [tipe]="drink.tipe"
+            [description]="drink.description"
+          />
+        }
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <h3>Food</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        @for (food of foodItems; track food.name) {
+          <app-menu-item
+            [name]="food.name"
+            [tipe]="food.tipe"
+            [description]="food.description"
+          />
+        }
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
