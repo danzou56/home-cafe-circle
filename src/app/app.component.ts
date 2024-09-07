@@ -36,6 +36,7 @@ export class AppComponent {
   title = 'home-cafe-circle';
   private static baseUrl = 'http://sidewalks-imac.local:5001';
   private static http_: HttpClient;
+  isSubmitDisabled = false;
 
   constructor(private http: HttpClient) {
     AppComponent.http_ = http;
@@ -51,6 +52,11 @@ export class AppComponent {
     ).subscribe((_) => {
       this.menuComponent.resetItems();
       this.customerName.setValue('');
+      this.isSubmitDisabled = true;
+
+      setTimeout(() => {
+        this.isSubmitDisabled = false;
+      }, 3000);
     });
   }
 

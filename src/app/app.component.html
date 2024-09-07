@@ -11,7 +11,11 @@
         </mat-form-field>
       </div>
       <div>
-        <button mat-flat-button (click)="submitOrder()">
+        <button
+          mat-flat-button
+          (click)="submitOrder()"
+          [disabled]="isSubmitDisabled"
+        >
           Submit
           <mat-icon
             aria-hidden="false"
