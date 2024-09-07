@@ -1,6 +1,9 @@
 import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { FoodType } from './food-type';
-import { MenuItemComponent, MenuItemRadio } from './menu-item.component';
+import {
+  MenuItemComponent,
+  MenuItemRadio,
+} from './menu-item/menu-item.component';
 import { MatCardModule } from '@angular/material/card';
 import {
   MatList,

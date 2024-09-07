@@ -1,4 +1,4 @@
-import { FoodType } from './food-type';
+import { FoodType } from '../food-type';
 import { Component, Input } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
@@ -6,18 +6,11 @@ import {
   MatListItemLine,
   MatListItemTitle,
 } from '@angular/material/list';
-// import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-menu-item',
   standalone: true,
-  imports: [
-    // CommonModule,
-    MatButton,
-    MatListItemLine,
-    MatListItemTitle,
-    MatListItem,
-  ],
+  imports: [MatButton, MatListItemLine, MatListItemTitle, MatListItem],
   templateUrl: './menu-item.component.html',
 })
 export class MenuItemComponent {
