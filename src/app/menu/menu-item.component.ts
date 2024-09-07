@@ -27,6 +27,8 @@ export class MenuItemComponent {
   tipe!: FoodType;
   @Input()
   description!: string;
+  @Input({ required: false })
+  radios!: MenuItemRadio[];
 
   quantity: number = 0;
 
@@ -40,5 +42,14 @@ export class MenuItemComponent {
 
   minus(): void {
     if (this.quantity > 0) this.quantity--;
+  }
+}
+
+export class MenuItemRadio {
+  name: string;
+  options: string[];
+  constructor(name: string, ...options: string[]) {
+    this.name = name;
+    this.options = options;
   }
 }

@@ -1,16 +1,13 @@
-import { Component, Injectable, QueryList, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { HttpClient } from '@angular/common/http';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormControl } from '@angular/forms';
-import { MenuItemComponent } from './menu/menu-item.component';
-import { Observable } from 'rxjs';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrderItem } from './cart/cart/order-item';
 
 @Component({
   imports: [
@@ -31,22 +28,20 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.css',
   templateUrl: './app.component.html',
 })
-@Injectable({ providedIn: 'root' })
 export class AppComponent {
   title = 'home-cafe-circle';
-  private static baseUrl = 'http://sidewalks-imac.local:5001';
-  private static http_: HttpClient;
   isSubmitDisabled = false;
 
-  constructor(private http: HttpClient) {
-    AppComponent.http_ = http;
-  }
-
   @ViewChild(MenuComponent) menuComponent!: MenuComponent;
+  @ViewChild(CartComponent) cartComponent!: CartComponent;
   customerName: FormControl = new FormControl('');
 
+  orderCallback: (orderItem: OrderItem) => void = (orderItem) => {
+    this.cartComponent.addOrderItem(orderItem);
+  };
+
   submitOrder(): void {
-    AppComponent.submitOrderFromItems(
+    CartComponent.submitOrderFromItems(
       this.customerName.value,
       this.menuComponent.menuItemComponents,
     ).subscribe((_) => {
@@ -58,26 +53,5 @@ export class AppComponent {
         this.isSubmitDisabled = false;
       }, 3000);
     });
-  }
-
-  static submitOrderFromItems(
-    name: string,
-    items: Iterable<MenuItemComponent>,
-  ): Observable<Object> {
-    let orderItems = [];
-    for (let item of items) {
-      orderItems.push(
-        ...Array(item.quantity).fill({
-          name: item.name,
-        }),
-      );
-    }
-
-    let body = {
-      name: name,
-      items: orderItems,
-    };
-
-    return AppComponent.http_.post(`${AppComponent.baseUrl}/order`, body);
   }
 }

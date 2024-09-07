@@ -1,6 +1,6 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { FoodType } from './food-type';
-import { MenuItemComponent } from './menu-item.component';
+import { MenuItemComponent, MenuItemRadio } from './menu-item.component';
 import { MatCardModule } from '@angular/material/card';
 import {
   MatList,
@@ -9,6 +9,7 @@ import {
   MatListItemTitle,
 } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
+import { OrderItem } from '../cart/cart/order-item';
 
 @Component({
   selector: 'app-menu',
@@ -29,11 +30,18 @@ export class MenuComponent {
   @ViewChildren(MenuItemComponent)
   menuItemComponents!: QueryList<MenuItemComponent>;
 
+  @Input()
+  addCallback!: (orderItem: OrderItem) => void;
+
   menuItemsData = [
     {
       name: 'latte',
       tipe: FoodType.Drink,
       description: 'It might be shit',
+      radios: [
+        new MenuItemRadio('hot/iced', 'hot', 'iced'),
+        new MenuItemRadio('milk', '2%', 'oat'),
+      ],
     },
     {
       name: 'matcha latte',
