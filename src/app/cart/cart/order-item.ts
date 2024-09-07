@@ -1,6 +1,6 @@
 export class OrderItem {
-  private name: string;
-  private subItems: OrderItem[];
+  name: string;
+  subItems: OrderItem[];
 
   constructor(name: string, subItems: OrderItem[]) {
     this.name = name;

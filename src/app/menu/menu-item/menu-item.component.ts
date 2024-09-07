@@ -20,8 +20,11 @@ export class MenuItemComponent {
   tipe!: FoodType;
   @Input()
   description!: string;
-  @Input({ required: false })
-  radios!: MenuItemRadio[];
+  @Input()
+  radios: MenuItemRadio[] = [];
+
+  @Input()
+  addCallback!: (menuItem: MenuItemComponent) => void;
 
   quantity: number = 0;
 

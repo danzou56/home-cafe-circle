@@ -8,6 +8,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderItem } from './cart/cart/order-item';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   imports: [
@@ -22,6 +23,7 @@ import { OrderItem } from './cart/cart/order-item';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   selector: 'app-root',
   standalone: true,
@@ -41,10 +43,7 @@ export class AppComponent {
   };
 
   submitOrder(): void {
-    CartComponent.submitOrderFromItems(
-      this.customerName.value,
-      this.menuComponent.menuItemComponents,
-    ).subscribe((_) => {
+    this.cartComponent.submitOrder(this.customerName.value).subscribe((_) => {
       this.menuComponent.resetItems();
       this.customerName.setValue('');
       this.isSubmitDisabled = true;

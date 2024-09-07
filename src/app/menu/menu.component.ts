@@ -1,4 +1,10 @@
-import { Component, Input, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { FoodType } from './food-type';
 import {
   MenuItemComponent,
@@ -13,6 +19,8 @@ import {
 } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
 import { OrderItem } from '../cart/cart/order-item';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { OptionSelectorComponent } from './option-selector/option-selector.component';
 
 @Component({
   selector: 'app-menu',
@@ -30,9 +38,14 @@ import { OrderItem } from '../cart/cart/order-item';
   styleUrl: './menu.component.css',
 })
 export class MenuComponent {
+  readonly orderOptionsDialog: MatDialog = inject(MatDialog);
+
   @ViewChildren(MenuItemComponent)
   menuItemComponents!: QueryList<MenuItemComponent>;
 
+  // TODO pass menu in as a param
+  @Input()
+  menu: any = null
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
 
@@ -73,12 +86,6 @@ export class MenuComponent {
       tipe: FoodType.Food,
       description: '',
     },
-    /*    new MenuItemComponent("Latte", FoodType.Drink, "Coffee mmmm"),
-        new MenuItemComponent("Matcha Latte", FoodType.Drink, "Grass mmmm"),
-        new MenuItemComponent("London", FoodType.Drink, "London"),
-        new MenuItemComponent("London", FoodType.Drink, "London"),
-
-        new MenuItemComponent("Egg Salad Sandwich", FoodType.Food, "Eggs!")*/
   ];
 
   foodItems = this.menuItemsData.filter((item) => {
@@ -90,5 +97,34 @@ export class MenuComponent {
 
   resetItems(): void {
     this.menuItemComponents.forEach((item) => item.resetQuantity());
+  }
+
+  static openMenuItemOptionsDialog = function (
+    orderOptionsDialog: MatDialog,
+    menuItem: MenuItemComponent,
+    addCallback: (orderItem: OrderItem) => void,
+  ): void {
+    const dialogRef = orderOptionsDialog.open(OptionSelectorComponent, {
+      data: {
+        menuItem: menuItem,
+        addCallback: addCallback,
+      },
+    });
+  };
+
+  // Helper that effectively curries openMenuItemOptionsDialog using the injected
+  // MatDialog
+  // I have no idea how to idiomatically work with javascript this so RIP anybody
+  // reading this and screaming wtf is this garbage
+  addMenuItemCallback(): (menuItem: MenuItemComponent) => void {
+    let orderOptionsDialog = this.orderOptionsDialog;
+    let addCallback = this.addCallback
+    return (menuItem: MenuItemComponent): void => {
+      return MenuComponent.openMenuItemOptionsDialog(
+        orderOptionsDialog,
+        menuItem,
+        addCallback
+      );
+    };
   }
 }

@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Select options for {{ menuItem().name }}</h2>
+<mat-dialog-content>
+  <form>
+    @for (radio of menuItem().radios; track radio.name) {
+      <div>
+        <mat-label>{{ radio.name }}</mat-label>
+        <mat-radio-group [formControl]="selectedOptionControls.get(radio.name)!">
+          @for (radioOption of radio.options; track radioOption) {
+            <mat-radio-button required [value]="radioOption">{{ radioOption }}</mat-radio-button>
+          }
+        </mat-radio-group>
+        @if (addInvoked && selectedOptionControls.get(radio.name)!.value === null) {
+          <mat-error>This item is required</mat-error>
+        }
+      </div>
+    }
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cancel</button>
+  <button mat-button (click)="add()">Add</button>
+</mat-dialog-actions>
+

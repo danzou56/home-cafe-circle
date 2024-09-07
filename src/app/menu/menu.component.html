@@ -10,6 +10,8 @@
             [name]="drink.name"
             [tipe]="drink.tipe"
             [description]="drink.description"
+            [radios]="drink?.radios || []"
+            [addCallback]="this.addMenuItemCallback()"
           />
         }
       </mat-list>
@@ -26,6 +28,7 @@
             [name]="food.name"
             [tipe]="food.tipe"
             [description]="food.description"
+            [addCallback]="this.addMenuItemCallback()"
           />
         }
       </mat-list>

@@ -1,6 +1,5 @@
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MenuItemComponent } from '../../menu/menu-item/menu-item.component';
 import { Observable } from 'rxjs';
 import { OrderItem } from './order-item';
 
@@ -11,7 +10,6 @@ import { OrderItem } from './order-item';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
-@Injectable({ providedIn: 'root' })
 export class CartComponent {
   orderItems: OrderItem[] = [];
 
@@ -26,22 +24,19 @@ export class CartComponent {
     this.orderItems.push(orderItem);
   }
 
-  static submitOrderFromItems(
-    name: string,
-    items: Iterable<MenuItemComponent>,
-  ): Observable<Object> {
-    let orderItems = [];
-    for (let item of items) {
-      orderItems.push(
-        ...Array(item.quantity).fill({
-          name: item.name,
-        }),
-      );
-    }
-
+  submitOrder(name: string): Observable<Object> {
     let body = {
       name: name,
-      items: orderItems,
+      items: this.orderItems.map((orderItem) => {
+        let item = { name: orderItem.name };
+        if (orderItem.subItems) {
+          // @ts-ignore
+          item['sub_items'] = orderItem.subItems.map((subItem) => ({
+            name: subItem,
+          }));
+        }
+        return item;
+      }),
     };
 
     return CartComponent.http.post(`${CartComponent.baseUrl}/order`, body);
