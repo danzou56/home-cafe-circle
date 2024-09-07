@@ -3,15 +3,23 @@
     <app-menu />
   </mat-drawer-content>
   <mat-drawer mode="side" opened position="end">
-    <div class="cart" style="align: end">
-      <button mat-flat-button (click)="submitOrder()">
-        Submit
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="send"
-        ></mat-icon>
-      </button>
+    <div class="cart">
+      <div>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput [formControl]="customerName">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-flat-button (click)="submitOrder()">
+          Submit
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="send"
+          ></mat-icon>
+        </button>
+      </div>
     </div>
   </mat-drawer>
 </mat-drawer-container>
