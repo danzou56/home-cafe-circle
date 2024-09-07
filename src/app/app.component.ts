@@ -32,6 +32,7 @@ import { FormControl } from '@angular/forms';
 @Injectable({ providedIn: 'root' })
 export class AppComponent {
   title = 'home-cafe-circle';
+  private baseUrl = "http://sidewalks-imac.local:5001"
 
   constructor(private http: HttpClient) {}
 
@@ -39,12 +40,6 @@ export class AppComponent {
   customerName: FormControl = new FormControl("");
 
   submitOrder(): void {
-    this.http
-      .get('http://sidewalks-imac.local:5001/health-check', {
-        responseType: 'text',
-      })
-      .subscribe((buffer) => console.log(buffer));
-
     let body = {
       name: this.customerName.value,
       items: this.menuComponent.menuItemComponents
@@ -57,7 +52,7 @@ export class AppComponent {
     };
 
     this.http
-      .post('http://sidewalks-imac.local:5001/order', body)
+      .post(`${this.baseUrl}/order`, body)
       .subscribe((_) => {
         this.menuComponent.resetItems();
         this.customerName.setValue("");
