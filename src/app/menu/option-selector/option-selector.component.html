@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>Select options for {{ menuItem().name }}</h2>
+<h2 mat-dialog-title>Select options for {{ menuItem.name }}</h2>
 <mat-dialog-content>
   <form>
-    @for (radio of menuItem().radios; track radio.name) {
+    @for (radio of menuItem.radios; track radio.name) {
       <div>
         <mat-label>{{ radio.name }}</mat-label>
         <mat-radio-group [formControl]="selectedOptionControls.get(radio.name)!">
@@ -14,6 +14,10 @@
         }
       </div>
     }
+    <mat-form-field>
+      <mat-label>Notes</mat-label>
+      <textarea matInput [formControl]="notesControl"></textarea>
+    </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>

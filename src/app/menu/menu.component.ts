@@ -38,15 +38,11 @@ export class MenuComponent {
   });
 
   addMenuItemCallback: (menuItem: MenuItem) => void = (menuItem) => {
-    if (menuItem.radios) {
-      this.orderOptionsDialog.open(OptionSelectorComponent, {
-        data: {
-          menuItem: menuItem,
-          addCallback: this.addCallback,
-        },
-      });
-    } else {
-      this.addCallback({ name: menuItem.name });
-    }
+    this.orderOptionsDialog.open(OptionSelectorComponent, {
+      data: {
+        menuItem: menuItem,
+        addCallback: this.addCallback,
+      },
+    });
   };
 }

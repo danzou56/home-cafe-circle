@@ -1,3 +1,8 @@
 .button-container {
   float: right;
 }
+
+mat-list-item {
+  height: auto!important;
+  min-height: var(--mdc-list-list-item-two-line-container-height);
+}

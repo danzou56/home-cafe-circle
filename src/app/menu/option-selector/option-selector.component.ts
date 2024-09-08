@@ -45,25 +45,28 @@ export interface OptionSelectorData {
 export class OptionSelectorComponent {
   readonly dialogRef = inject(MatDialogRef<OptionSelectorComponent>);
   readonly data = inject<OptionSelectorData>(MAT_DIALOG_DATA);
-  readonly menuItem = model(this.data.menuItem);
-  readonly addCallback = model(this.data.addCallback);
+  readonly menuItem = this.data.menuItem;
+  readonly addCallback = this.data.addCallback;
 
   addInvoked = false;
   selectedOptionControls: Map<string, FormControl> = new Map(
-    this.menuItem().radios?.map((radio) => [radio.name, new FormControl()]),
+    this.menuItem.radios?.map((radio) => [radio.name, new FormControl()]),
   );
+  notesControl = new FormControl("");
 
   add(): void {
     this.addInvoked = true;
     let controlsArray = Array.from(this.selectedOptionControls.values());
-    if (!controlsArray.every((control) => control.value !== null)) {
-      return;
-    }
-    this.addCallback()({
-      name: this.menuItem().name,
-      subItems: controlsArray.map((formControl) => ({
-        name: formControl.value,
-      })),
+    if (!controlsArray.every((control) => control.value !== null)) return;
+
+    let subItems = controlsArray.map((formControl) => ({
+      name: formControl.value,
+    }))
+    if (this.notesControl.value!.length > 0) subItems.push({ name: this.notesControl.value });
+
+    this.addCallback({
+      name: this.menuItem.name,
+      subItems: subItems,
     });
     this.dialogRef.close();
   }

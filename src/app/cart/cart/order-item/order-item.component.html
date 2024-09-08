@@ -9,7 +9,7 @@
       </button>
     </span>
   </span>
-  @if (orderItem.subItems) {
+  @if (orderItem.subItems !== undefined && orderItem.subItems.length > 0) {
     <ul matListItemLine>
       @for (subItem of orderItem.subItems; track $index) {
         <li>{{ subItem.name }}</li>

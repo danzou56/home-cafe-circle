@@ -6,8 +6,8 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatListModule } from "@angular/material/list";
-import { OrderItemComponent } from "./order-item/order-item.component";
+import { MatListModule } from '@angular/material/list';
+import { OrderItemComponent } from './order-item/order-item.component';
 
 @Component({
   selector: 'app-cart',
@@ -50,8 +50,9 @@ export class CartComponent {
       name: name,
       items: orderItems.map((orderItem) => ({
         name: orderItem.name,
-        sub_items:
-          orderItem.subItems?.map((subItem) => ({ name: subItem.name })),
+        sub_items: orderItem.subItems?.map((subItem) => ({
+          name: subItem.name,
+        })),
       })),
     };
   }
@@ -67,5 +68,5 @@ export class CartComponent {
 
   deleteCallback: (index: number) => void = (index: number) => {
     this.orderItems.splice(index, 1);
-  }
+  };
 }
