@@ -12,7 +12,7 @@ import {
 } from './menu-item/menu-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { OrderItem } from '../cart/cart/order-item';
+import { OrderItem } from '../cart/cart/order-item/order-item';
 import { MatDialog } from '@angular/material/dialog';
 import { OptionSelectorComponent } from './option-selector/option-selector.component';
 

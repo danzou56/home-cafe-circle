@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OrderItem } from './order-item';
+import { OrderItem } from './order-item/order-item';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';

@@ -13,7 +13,7 @@ import { MatInput } from '@angular/material/input';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
-import { OrderItem } from '../../cart/cart/order-item';
+import { OrderItem } from '../../cart/cart/order-item/order-item';
 
 export interface OptionSelectorData {
   menuItem: MenuItemComponent;

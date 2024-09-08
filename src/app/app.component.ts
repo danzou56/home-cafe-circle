@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { OrderItem } from './cart/cart/order-item';
+import { OrderItem } from './cart/cart/order-item/order-item';
 
 @Component({
   imports: [MenuComponent, CartComponent, MatSidenavModule],
