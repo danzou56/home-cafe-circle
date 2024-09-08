@@ -1,9 +1,9 @@
 import { Component, inject, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrderItem } from './order-item';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,9 +11,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-cart',
   standalone: true,
   imports: [
-    MatButton,
+    MatButtonModule,
     MatFormField,
-    MatIcon,
+    MatIconModule,
     MatInput,
     MatLabel,
     ReactiveFormsModule,

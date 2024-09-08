@@ -11,13 +11,7 @@ import {
   MenuItemRadio,
 } from './menu-item/menu-item.component';
 import { MatCardModule } from '@angular/material/card';
-import {
-  MatList,
-  MatListItem,
-  MatListItemLine,
-  MatListItemTitle,
-} from '@angular/material/list';
-import { MatButton } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 import { OrderItem } from '../cart/cart/order-item';
 import { MatDialog } from '@angular/material/dialog';
 import { OptionSelectorComponent } from './option-selector/option-selector.component';
@@ -25,15 +19,7 @@ import { OptionSelectorComponent } from './option-selector/option-selector.compo
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [
-    MatCardModule,
-    MatList,
-    MatListItem,
-    MatListItemTitle,
-    MatListItemLine,
-    MatButton,
-    MenuItemComponent,
-  ],
+  imports: [MatCardModule, MatListModule, MenuItemComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
 })
