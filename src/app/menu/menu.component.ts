@@ -38,7 +38,6 @@ export class MenuComponent {
   });
 
   addMenuItemCallback: (menuItem: MenuItem) => void = (menuItem) => {
-    console.log(menuItem);
     if (menuItem.radios) {
       this.orderOptionsDialog.open(OptionSelectorComponent, {
         data: {
