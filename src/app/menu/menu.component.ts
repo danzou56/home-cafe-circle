@@ -27,65 +27,15 @@ import { MenuItem } from './menu-item/menu-item';
 export class MenuComponent {
   readonly orderOptionsDialog: MatDialog = inject(MatDialog);
 
-  @ViewChildren(MenuItemComponent)
-  menuItemComponents!: QueryList<MenuItemComponent>;
-
-  // TODO pass menu in as a param
   @Input()
-  menu: MenuItem[] = [];
+  menu!: MenuItem[];
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
 
-  menuItemsData: MenuItem[] = [
-    {
-      name: 'latte',
-      tipe: FoodType.Drink,
-      description: 'It might be shit',
-      radios: [
-        new MenuItemRadio('hot/iced', 'hot', 'iced'),
-        new MenuItemRadio('milk', '2%', 'oat'),
-      ],
-    },
-    {
-      name: 'matcha latte',
-      tipe: FoodType.Drink,
-      description: 'The flavor of grass',
-      radios: [
-        new MenuItemRadio('hot/iced', 'hot', 'iced'),
-        new MenuItemRadio('grass amount', 'less', 'more'),
-      ],
-    },
-    {
-      name: 'tomago sando',
-      tipe: FoodType.Food,
-      description: 'Japanese style egg salad sandwich on house made milk bread',
-      radios: [],
-    },
-    {
-      name: 'scallion pancake "sando"',
-      tipe: FoodType.Food,
-      description:
-        'Scallion pancake breakfast sandwich with egg, spam, american cheese, and chili oil',
-      radios: [new MenuItemRadio('spicy level', 'mild', 'hot', 'very hot')],
-    },
-    {
-      name: 'tomato foccacia slice',
-      tipe: FoodType.Food,
-      description: '',
-      radios: [],
-    },
-    {
-      name: 'pistachio macaron',
-      tipe: FoodType.Food,
-      description: '',
-      radios: [],
-    },
-  ];
-
-  foodItems = this.menuItemsData.filter((item) => {
+  foodItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Food;
   });
-  drinkItems = this.menuItemsData.filter((item) => {
+  drinkItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Drink;
   });
 
