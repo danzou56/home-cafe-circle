@@ -8,13 +8,13 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { MatError, MatFormField, MatLabel } from "@angular/material/form-field";
+import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { OrderItem } from '../../cart/cart/order-item/order-item';
-import { MenuItem } from "../menu-item/menu-item";
+import { MenuItem } from '../menu-item/menu-item';
 
 export interface OptionSelectorData {
   menuItem: MenuItem;
@@ -48,9 +48,9 @@ export class OptionSelectorComponent {
   readonly menuItem = model(this.data.menuItem);
   readonly addCallback = model(this.data.addCallback);
 
-  addInvoked = false
+  addInvoked = false;
   selectedOptionControls: Map<string, FormControl> = new Map(
-    this.menuItem().radios.map((radio) => [radio.name, new FormControl()]),
+    this.menuItem().radios?.map((radio) => [radio.name, new FormControl()]),
   );
 
   add(): void {
@@ -59,12 +59,12 @@ export class OptionSelectorComponent {
     if (!controlsArray.every((control) => control.value !== null)) {
       return;
     }
-    this.addCallback()(
-      new OrderItem(
-        this.menuItem().name,
-        controlsArray.map((formControl) => new OrderItem(formControl.value)),
-      ),
-    );
+    this.addCallback()({
+      name: this.menuItem().name,
+      subItems: controlsArray.map((formControl) => ({
+        name: formControl.value,
+      })),
+    });
     this.dialogRef.close();
   }
 }

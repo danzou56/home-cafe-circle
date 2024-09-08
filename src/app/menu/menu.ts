@@ -1,6 +1,5 @@
 import { MenuItem } from "./menu-item/menu-item";
 import { FoodType } from "./food-type";
-import { MenuItemRadio } from "./menu-item/menu-item.component";
 
 const menu: MenuItem[] = [
   {
@@ -8,8 +7,8 @@ const menu: MenuItem[] = [
     tipe: FoodType.Drink,
     description: 'It might be shit',
     radios: [
-      new MenuItemRadio('hot/iced', 'hot', 'iced'),
-      new MenuItemRadio('milk', '2%', 'oat'),
+      { name: 'hot/iced', options: ['hot', 'iced'] },
+      { name: 'milk', options: ['2%', 'oat'] },
     ],
   },
   {
@@ -17,8 +16,8 @@ const menu: MenuItem[] = [
     tipe: FoodType.Drink,
     description: 'The flavor of grass',
     radios: [
-      new MenuItemRadio('hot/iced', 'hot', 'iced'),
-      new MenuItemRadio('grass amount', 'less', 'more'),
+      { name: 'hot/iced', options: ['hot', 'iced'] },
+      { name: 'grass amount', options: ['less', 'more'] },
     ],
   },
   {
@@ -32,7 +31,7 @@ const menu: MenuItem[] = [
     tipe: FoodType.Food,
     description:
       'Scallion pancake breakfast sandwich with egg, spam, american cheese, and chili oil',
-    radios: [new MenuItemRadio('spicy level', 'mild', 'hot', 'very hot')],
+    radios: [{ name: 'spice level', options: ['mild', 'hot', 'very hot'] }],
   },
   {
     name: 'tomato foccacia slice',
@@ -46,6 +45,6 @@ const menu: MenuItem[] = [
     description: '',
     radios: [],
   },
-]
+];
 
 export { menu };

@@ -6,10 +6,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { FoodType } from './food-type';
-import {
-  MenuItemComponent,
-  MenuItemRadio,
-} from './menu-item/menu-item.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { OrderItem } from '../cart/cart/order-item/order-item';
@@ -31,7 +28,7 @@ export class MenuComponent {
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
   @Input()
-  readonly menu: MenuItem[] = menuData
+  readonly menu: MenuItem[] = menuData;
 
   foodItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Food;
@@ -42,7 +39,7 @@ export class MenuComponent {
 
   addMenuItemCallback: (menuItem: MenuItem) => void = (menuItem) => {
     console.log(menuItem);
-    if (menuItem.radios.length > 0) {
+    if (menuItem.radios) {
       this.orderOptionsDialog.open(OptionSelectorComponent, {
         data: {
           menuItem: menuItem,
@@ -50,8 +47,7 @@ export class MenuComponent {
         },
       });
     } else {
-      this.addCallback(new OrderItem(menuItem.name));
+      this.addCallback({ name: menuItem.name });
     }
   };
-  protected readonly MenuItem = MenuItem;
 }

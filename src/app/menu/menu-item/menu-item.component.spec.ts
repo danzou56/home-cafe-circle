@@ -1,8 +1,22 @@
-import { MenuItemComponent } from './menu-item.component';
-import { FoodType } from '../food-type';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-/*describe('MenuItem', () => {
-  it('should create an instance', () => {
-    expect(new MenuItemComponent('', FoodType.Drink, '')).toBeTruthy();
+import { MenuItemComponent as MenuItemComponent } from './menu-item.component';
+
+describe('MenuItemComponent', () => {
+  let component: MenuItemComponent;
+  let fixture: ComponentFixture<MenuItemComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MenuItemComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(MenuItemComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
-});*/
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

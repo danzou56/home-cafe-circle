@@ -22,9 +22,7 @@ describe('CartComponent', () => {
   });
 
   it('should make an order with empty sub items', () => {
-    let orderObject = CartComponent.makeOrder('foo', [
-      new OrderItem('bar', []),
-    ]);
+    let orderObject = CartComponent.makeOrder('foo', [{ name: 'bar' }]);
 
     expect(orderObject).toBe({
       name: 'foo',
@@ -34,7 +32,7 @@ describe('CartComponent', () => {
 
   it('should make an order with sub items', () => {
     let orderObject = CartComponent.makeOrder('foo', [
-      new OrderItem('bar', [new OrderItem("baz")]),
+      { name: 'bar', subItems: [{ name: 'baz' }] },
     ]);
 
     expect(orderObject).toBe({

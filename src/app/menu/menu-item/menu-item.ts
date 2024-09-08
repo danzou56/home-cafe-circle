@@ -1,21 +1,13 @@
 import { FoodType } from '../food-type';
-import { MenuItemRadio } from './menu-item.component';
 
-export class MenuItem {
-  name: string;
-  tipe: FoodType;
-  description: string;
-  radios: MenuItemRadio[] = [];
+export interface MenuItem {
+  readonly name: string;
+  readonly tipe: FoodType;
+  readonly description: string;
+  readonly radios?: MenuItemRadio[];
+}
 
-  constructor(
-    name: string,
-    tipe: FoodType,
-    description: string,
-    radios: MenuItemRadio[] = [],
-  ) {
-    this.name = name;
-    this.tipe = tipe;
-    this.description = description;
-    this.radios = radios;
-  }
+export interface MenuItemRadio {
+  readonly name: string;
+  readonly options: string[];
 }

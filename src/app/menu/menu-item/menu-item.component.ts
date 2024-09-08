@@ -19,11 +19,3 @@ export class MenuItemComponent {
   addCallback!: (menuItem: MenuItem) => void;
 }
 
-export class MenuItemRadio {
-  name: string;
-  options: string[];
-  constructor(name: string, ...options: string[]) {
-    this.name = name;
-    this.options = options;
-  }
-}
