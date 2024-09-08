@@ -61,7 +61,7 @@ export class OptionSelectorComponent {
     this.addCallback()(
       new OrderItem(
         this.menuItem().name,
-        controlsArray.map((formControl) => formControl.value),
+        controlsArray.map((formControl) => new OrderItem(formControl.value)),
       ),
     );
     this.dialogRef.close();

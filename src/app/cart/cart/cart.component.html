@@ -5,6 +5,19 @@
       <input matInput [formControl]="customerName" />
     </mat-form-field>
   </div>
+
+  <div>
+    <mat-list>
+      @for (orderItem of orderItems; track $index) {
+        <app-order-item
+          [orderItem]="orderItem"
+          [index]="$index"
+          [deleteCallback]="deleteCallback"
+        />
+      }
+    </mat-list>
+  </div>
+
   <div>
     <button
       mat-flat-button

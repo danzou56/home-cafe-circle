@@ -1,22 +1,18 @@
 <mat-list-item>
-  <h6 matListItemTitle>
-    {{ this.name }}
-    <p
-      matListItemLine
-      class="quantity-container"
-      style="display: inline; float: right"
-    >
+  <span matListItemTitle>
+    <h6 class="menu-item-name">{{ this.name }}</h6>
+    <span matListItemLine class="button-container">
       <button mat-icon-button (click)="this.addCallback(this)">
         <mat-icon fontIcon="add">
           add
         </mat-icon>
       </button>
-    </p>
-  </h6>
+    </span>
+  </span>
 
   @if (this.description.length > 0) {
-    <p matListItemLine>
-      {{ this.description }}
+    <p matListItemLine class="menu-item-description">
+      <span class="menu-item-description">{{ this.description }}</span>
     </p>
   }
 </mat-list-item>

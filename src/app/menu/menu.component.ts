@@ -49,6 +49,10 @@ export class MenuComponent {
       name: 'matcha latte',
       tipe: FoodType.Drink,
       description: 'The flavor of grass',
+      radios: [
+        new MenuItemRadio('hot/iced', 'hot', 'iced'),
+        new MenuItemRadio('grass amount', 'less', 'more')
+      ]
     },
 
     {
@@ -61,6 +65,9 @@ export class MenuComponent {
       tipe: FoodType.Food,
       description:
         'Scallion pancake breakfast sandwich with egg, spam, american cheese, and chili oil',
+      radios: [
+        new MenuItemRadio('spicy level', 'mild', 'hot', 'very hot')
+      ]
     },
     {
       name: 'tomato foccacia slice',
@@ -68,7 +75,7 @@ export class MenuComponent {
       description: '',
     },
     {
-      name: 'pistachio macaroon',
+      name: 'pistachio macaron',
       tipe: FoodType.Food,
       description: '',
     },

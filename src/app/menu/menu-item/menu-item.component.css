@@ -1,0 +1,11 @@
+.button-container {
+  float: right;
+}
+
+.menu-item-name {
+  display: inline;
+}
+
+.menu-item-description {
+  white-space: pre-wrap;
+}
