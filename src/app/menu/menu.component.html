@@ -7,10 +7,7 @@
       <mat-list>
         @for (drink of drinkItems; track drink.name) {
           <app-menu-item
-            [name]="drink.name"
-            [tipe]="drink.tipe"
-            [description]="drink.description"
-            [radios]="drink?.radios || []"
+            [menuItem]="drink"
             [addCallback]="addMenuItemCallback"
           />
         }
@@ -25,9 +22,7 @@
       <mat-list>
         @for (food of foodItems; track food.name) {
           <app-menu-item
-            [name]="food.name"
-            [tipe]="food.tipe"
-            [description]="food.description"
+            [menuItem]="food"
             [addCallback]="addMenuItemCallback"
           />
         }

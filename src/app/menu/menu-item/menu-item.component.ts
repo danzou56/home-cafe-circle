@@ -1,8 +1,8 @@
-import { FoodType } from '../food-type';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MenuItem } from './menu-item';
 
 @Component({
   selector: 'app-menu-item',
@@ -13,16 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class MenuItemComponent {
   @Input()
-  name!: string;
-  @Input()
-  tipe!: FoodType;
-  @Input()
-  description!: string;
-  @Input()
-  radios: MenuItemRadio[] = [];
+  menuItem!: MenuItem;
 
   @Input()
-  addCallback!: (menuItem: MenuItemComponent) => void;
+  addCallback!: (menuItem: MenuItem) => void;
 }
 
 export class MenuItemRadio {

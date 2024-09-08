@@ -14,9 +14,10 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { OrderItem } from '../../cart/cart/order-item/order-item';
+import { MenuItem } from "../menu-item/menu-item";
 
 export interface OptionSelectorData {
-  menuItem: MenuItemComponent;
+  menuItem: MenuItem;
   addCallback: (orderItem: OrderItem) => void;
 }
 

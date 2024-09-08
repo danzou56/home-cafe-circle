@@ -1,8 +1,8 @@
 <mat-list-item>
   <span matListItemTitle>
-    <h6 class="menu-item-name">{{ this.name }}</h6>
+    <h6 class="menu-item-name">{{ menuItem.name }}</h6>
     <span matListItemLine class="button-container">
-      <button mat-icon-button (click)="this.addCallback(this)">
+      <button mat-icon-button (click)="addCallback(menuItem)">
         <mat-icon fontIcon="add">
           add
         </mat-icon>
@@ -10,9 +10,9 @@
     </span>
   </span>
 
-  @if (this.description.length > 0) {
+  @if (menuItem.description.length > 0) {
     <p matListItemLine class="menu-item-description">
-      <span class="menu-item-description">{{ this.description }}</span>
+      <span class="menu-item-description">{{ menuItem.description }}</span>
     </p>
   }
 </mat-list-item>

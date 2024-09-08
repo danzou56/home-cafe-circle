@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { OrderItem } from '../cart/cart/order-item/order-item';
 import { MatDialog } from '@angular/material/dialog';
 import { OptionSelectorComponent } from './option-selector/option-selector.component';
+import { MenuItem } from './menu-item/menu-item';
 
 @Component({
   selector: 'app-menu',
@@ -31,11 +32,11 @@ export class MenuComponent {
 
   // TODO pass menu in as a param
   @Input()
-  menu: any = null;
+  menu: MenuItem[] = [];
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
 
-  menuItemsData = [
+  menuItemsData: MenuItem[] = [
     {
       name: 'latte',
       tipe: FoodType.Drink,
@@ -51,33 +52,33 @@ export class MenuComponent {
       description: 'The flavor of grass',
       radios: [
         new MenuItemRadio('hot/iced', 'hot', 'iced'),
-        new MenuItemRadio('grass amount', 'less', 'more')
-      ]
+        new MenuItemRadio('grass amount', 'less', 'more'),
+      ],
     },
-
     {
       name: 'tomago sando',
       tipe: FoodType.Food,
       description: 'Japanese style egg salad sandwich on house made milk bread',
+      radios: [],
     },
     {
       name: 'scallion pancake "sando"',
       tipe: FoodType.Food,
       description:
         'Scallion pancake breakfast sandwich with egg, spam, american cheese, and chili oil',
-      radios: [
-        new MenuItemRadio('spicy level', 'mild', 'hot', 'very hot')
-      ]
+      radios: [new MenuItemRadio('spicy level', 'mild', 'hot', 'very hot')],
     },
     {
       name: 'tomato foccacia slice',
       tipe: FoodType.Food,
       description: '',
+      radios: [],
     },
     {
       name: 'pistachio macaron',
       tipe: FoodType.Food,
       description: '',
+      radios: [],
     },
   ];
 
@@ -88,7 +89,8 @@ export class MenuComponent {
     return item.tipe == FoodType.Drink;
   });
 
-  addMenuItemCallback: (menuItem: MenuItemComponent) => void = (menuItem) => {
+  addMenuItemCallback: (menuItem: MenuItem) => void = (menuItem) => {
+    console.log(menuItem);
     if (menuItem.radios.length > 0) {
       this.orderOptionsDialog.open(OptionSelectorComponent, {
         data: {
@@ -100,4 +102,5 @@ export class MenuComponent {
       this.addCallback(new OrderItem(menuItem.name));
     }
   };
+  protected readonly MenuItem = MenuItem;
 }
