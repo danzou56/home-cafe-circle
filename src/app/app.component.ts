@@ -6,9 +6,9 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderItem } from './cart/cart/order-item';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   imports: [
@@ -32,25 +32,22 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 })
 export class AppComponent {
   title = 'home-cafe-circle';
-  isSubmitDisabled = false;
 
   @ViewChild(MenuComponent) menuComponent!: MenuComponent;
   @ViewChild(CartComponent) cartComponent!: CartComponent;
-  customerName: FormControl = new FormControl('');
 
-  orderCallback: (orderItem: OrderItem) => void = (orderItem) => {
+  addToCartCallback: (orderItem: OrderItem) => void = (orderItem) => {
     this.cartComponent.addOrderItem(orderItem);
   };
 
-  submitOrder(): void {
-    this.cartComponent.submitOrder(this.customerName.value).subscribe((_) => {
-      this.menuComponent.resetItems();
-      this.customerName.setValue('');
-      this.isSubmitDisabled = true;
+  submitOrderCallback: (object: Object) => void = (_: Object) => {
+    this.cartComponent.isSubmitDisabled = true;
+    this.menuComponent.resetItems();
+    this.cartComponent.resetCart();
 
-      setTimeout(() => {
-        this.isSubmitDisabled = false;
-      }, 3000);
-    });
+    setTimeout(() => {
+      this.cartComponent.isSubmitDisabled = false;
+    }, 3000);
   }
+
 }

@@ -1,1 +1,22 @@
-<!--<p>cart works!</p>-->
+<div class="cart">
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="customerName" />
+    </mat-form-field>
+  </div>
+  <div>
+    <button
+      mat-flat-button
+      (click)="submitOrder()"
+      [disabled]="isSubmitDisabled"
+    >
+      Submit
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="send"
+      ></mat-icon>
+    </button>
+  </div>
+</div>

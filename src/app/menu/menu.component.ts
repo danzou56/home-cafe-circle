@@ -19,7 +19,7 @@ import {
 } from '@angular/material/list';
 import { MatButton } from '@angular/material/button';
 import { OrderItem } from '../cart/cart/order-item';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { OptionSelectorComponent } from './option-selector/option-selector.component';
 
 @Component({
@@ -45,7 +45,7 @@ export class MenuComponent {
 
   // TODO pass menu in as a param
   @Input()
-  menu: any = null
+  menu: any = null;
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
 
@@ -99,32 +99,16 @@ export class MenuComponent {
     this.menuItemComponents.forEach((item) => item.resetQuantity());
   }
 
-  static openMenuItemOptionsDialog = function (
-    orderOptionsDialog: MatDialog,
-    menuItem: MenuItemComponent,
-    addCallback: (orderItem: OrderItem) => void,
-  ): void {
-    const dialogRef = orderOptionsDialog.open(OptionSelectorComponent, {
-      data: {
-        menuItem: menuItem,
-        addCallback: addCallback,
-      },
-    });
+  addMenuItemCallback: (menuItem: MenuItemComponent) => void = (menuItem) => {
+    if (menuItem.radios.length > 0) {
+      this.orderOptionsDialog.open(OptionSelectorComponent, {
+        data: {
+          menuItem: menuItem,
+          addCallback: this.addCallback,
+        },
+      });
+    } else {
+      this.addCallback(new OrderItem(menuItem.name));
+    }
   };
-
-  // Helper that effectively curries openMenuItemOptionsDialog using the injected
-  // MatDialog
-  // I have no idea how to idiomatically work with javascript this so RIP anybody
-  // reading this and screaming wtf is this garbage
-  addMenuItemCallback(): (menuItem: MenuItemComponent) => void {
-    let orderOptionsDialog = this.orderOptionsDialog;
-    let addCallback = this.addCallback
-    return (menuItem: MenuItemComponent): void => {
-      return MenuComponent.openMenuItemOptionsDialog(
-        orderOptionsDialog,
-        menuItem,
-        addCallback
-      );
-    };
-  }
 }

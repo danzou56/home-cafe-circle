@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartComponent } from './cart.component';
+import { OrderItem } from './order-item';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -18,5 +19,27 @@ describe('CartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should make an order with empty sub items', () => {
+    let orderObject = CartComponent.makeOrder('foo', [
+      new OrderItem('bar', []),
+    ]);
+
+    expect(orderObject).toBe({
+      name: 'foo',
+      items: [{ name: 'bar' }],
+    });
+  });
+
+  it('should make an order with sub items', () => {
+    let orderObject = CartComponent.makeOrder('foo', [
+      new OrderItem('bar', [new OrderItem("baz")]),
+    ]);
+
+    expect(orderObject).toBe({
+      name: 'foo',
+      items: [{ name: 'bar', sub_items: { name: 'baz' } }],
+    });
   });
 });

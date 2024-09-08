@@ -1,32 +1,8 @@
 <mat-drawer-container>
   <mat-drawer-content>
-    <app-menu [addCallback]="this.orderCallback" />
+    <app-menu [addCallback]="addToCartCallback" />
   </mat-drawer-content>
   <mat-drawer mode="side" opened position="end">
-    <div class="cart">
-      <div>
-        <mat-form-field>
-          <mat-label>Name</mat-label>
-          <input matInput [formControl]="customerName" />
-        </mat-form-field>
-      </div>
-      <div>
-        <button
-          mat-flat-button
-          (click)="submitOrder()"
-          [disabled]="isSubmitDisabled"
-        >
-          Submit
-          <mat-icon
-            aria-hidden="false"
-            aria-label="Example home icon"
-            fontIcon="send"
-          ></mat-icon>
-        </button>
-      </div>
-    </div>
-    <app-cart />
+    <app-cart [submitCallback]="submitOrderCallback"/>
   </mat-drawer>
 </mat-drawer-container>
-
-<!--<router-outlet />-->
