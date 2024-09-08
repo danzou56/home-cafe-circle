@@ -27,16 +27,10 @@ import { MenuItem } from './menu-item/menu-item';
 export class MenuComponent {
   readonly orderOptionsDialog: MatDialog = inject(MatDialog);
 
-  @ViewChildren(MenuItemComponent)
-  menuItemComponents!: QueryList<MenuItemComponent>;
-
-  // TODO pass menu in as a param
-  @Input()
-  menu: MenuItem[] = [];
   @Input()
   addCallback!: (orderItem: OrderItem) => void;
 
-  menuItemsData: MenuItem[] = [
+  menu: MenuItem[] = [
     {
       name: 'latte',
       tipe: FoodType.Drink,
@@ -82,10 +76,10 @@ export class MenuComponent {
     },
   ];
 
-  foodItems = this.menuItemsData.filter((item) => {
+  foodItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Food;
   });
-  drinkItems = this.menuItemsData.filter((item) => {
+  drinkItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Drink;
   });
 
