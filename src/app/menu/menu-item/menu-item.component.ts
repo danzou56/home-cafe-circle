@@ -26,19 +26,6 @@ export class MenuItemComponent {
   @Input()
   addCallback!: (menuItem: MenuItemComponent) => void;
 
-  quantity: number = 0;
-
-  resetQuantity(): void {
-    this.quantity = 0;
-  }
-
-  plus(): void {
-    this.quantity++;
-  }
-
-  minus(): void {
-    if (this.quantity > 0) this.quantity--;
-  }
 }
 
 export class MenuItemRadio {

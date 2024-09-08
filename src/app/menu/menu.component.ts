@@ -95,10 +95,6 @@ export class MenuComponent {
     return item.tipe == FoodType.Drink;
   });
 
-  resetItems(): void {
-    this.menuItemComponents.forEach((item) => item.resetQuantity());
-  }
-
   addMenuItemCallback: (menuItem: MenuItemComponent) => void = (menuItem) => {
     if (menuItem.radios.length > 0) {
       this.orderOptionsDialog.open(OptionSelectorComponent, {

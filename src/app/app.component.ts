@@ -42,7 +42,6 @@ export class AppComponent {
 
   submitOrderCallback: (object: Object) => void = (_: Object) => {
     this.cartComponent.isSubmitDisabled = true;
-    this.menuComponent.resetItems();
     this.cartComponent.resetCart();
 
     setTimeout(() => {
