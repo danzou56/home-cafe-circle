@@ -14,7 +14,6 @@ import { OrderItem } from './cart/cart/order-item/order-item';
 export class AppComponent {
   title = 'home-cafe-circle';
 
-  @ViewChild(MenuComponent) menuComponent!: MenuComponent;
   @ViewChild(CartComponent) cartComponent!: CartComponent;
 
   addToCartCallback: (orderItem: OrderItem) => void = (orderItem) => {

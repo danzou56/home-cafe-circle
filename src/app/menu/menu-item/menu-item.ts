@@ -5,7 +5,7 @@ export class MenuItem {
   name: string;
   tipe: FoodType;
   description: string;
-  radios: MenuItemRadio[];
+  radios: MenuItemRadio[] = [];
 
   constructor(
     name: string,
