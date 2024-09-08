@@ -1,12 +1,27 @@
-<div class="cart">
+<form>
+  <div class="header-container">
+    <h3>Your Order</h3>
+    <span class="submit-container">
+      <button
+        mat-flat-button
+        (click)="submitOrder()"
+        [disabled]="isSubmitDisabled"
+      >
+        Submit
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="send"
+        ></mat-icon>
+      </button>
+    </span>
+  </div>
+
   <div>
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input matInput [formControl]="customerName" />
     </mat-form-field>
-  </div>
-
-  <div>
     <mat-list>
       @for (orderItem of orderItems; track $index) {
         <app-order-item
@@ -17,19 +32,4 @@
       }
     </mat-list>
   </div>
-
-  <div>
-    <button
-      mat-flat-button
-      (click)="submitOrder()"
-      [disabled]="isSubmitDisabled"
-    >
-      Submit
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontIcon="send"
-      ></mat-icon>
-    </button>
-  </div>
-</div>
+</form>
