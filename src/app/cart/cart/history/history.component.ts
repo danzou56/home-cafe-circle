@@ -1,10 +1,14 @@
-import { Component, inject, Input } from "@angular/core";
+import { Component, inject, Input } from '@angular/core';
 import { HistoryItem } from './history-item';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 export interface HistoryData {
   historyItems: HistoryItem[];
@@ -19,14 +23,12 @@ export interface HistoryData {
   styleUrl: './history.component.css',
 })
 export class HistoryComponent {
-  readonly dialogRef = inject(MatDialogRef<HistoryComponent>)
-  readonly data = inject<HistoryData>(MAT_DIALOG_DATA)
+  readonly dialogRef = inject(MatDialogRef<HistoryComponent>);
+  readonly data = inject<HistoryData>(MAT_DIALOG_DATA);
   readonly historyItems: HistoryItem[] = this.data.historyItems;
-  readonly reprintCallback = this.data.reprintCallback
+  readonly reprintCallback = this.data.reprintCallback;
 
   reprint(historyItem: HistoryItem): void {
-    this.reprintCallback(historyItem).subscribe(_ =>
-      this.dialogRef.close()
-    )
+    this.reprintCallback(historyItem).subscribe((_) => this.dialogRef.close());
   }
 }

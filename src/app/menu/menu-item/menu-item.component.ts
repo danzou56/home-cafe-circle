@@ -18,4 +18,3 @@ export class MenuItemComponent {
   @Input()
   addCallback!: (menuItem: MenuItem) => void;
 }
-

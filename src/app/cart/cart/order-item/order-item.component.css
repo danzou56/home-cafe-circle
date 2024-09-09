@@ -1,4 +1,4 @@
 mat-list-item {
-  height: auto!important;
+  height: auto !important;
   min-height: var(--mdc-list-list-item-two-line-container-height);
 }
