@@ -1,18 +1,18 @@
-import { Component, inject, model } from '@angular/core';
-import { MenuItemComponent } from '../menu-item/menu-item.component';
+import { Component, inject } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
+  MatDialogModule,
   MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
-import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import {
+  MatError,
+  MatFormFieldModule,
+  MatLabel,
+} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
-import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 import { OrderItem } from '../../cart/cart/order-item/order-item';
 import { MenuItem } from '../menu-item/menu-item';
 
@@ -25,17 +25,13 @@ export interface OptionSelectorData {
   selector: 'app-option-selector',
   standalone: true,
   imports: [
-    MatDialogTitle,
-    MatDialogContent,
-    MatFormField,
-    MatInput,
+    MatFormFieldModule,
+    MatInputModule,
     FormsModule,
-    MatDialogActions,
-    MatButton,
-    MatDialogClose,
+    MatButtonModule,
+    MatDialogModule,
+    MatRadioModule,
     MatLabel,
-    MatRadioButton,
-    MatRadioGroup,
     ReactiveFormsModule,
     MatError,
   ],
@@ -52,7 +48,7 @@ export class OptionSelectorComponent {
   selectedOptionControls: Map<string, FormControl> = new Map(
     this.menuItem.radios?.map((radio) => [radio.name, new FormControl()]),
   );
-  notesControl = new FormControl("");
+  notesControl = new FormControl('');
 
   add(): void {
     this.addInvoked = true;
@@ -61,8 +57,9 @@ export class OptionSelectorComponent {
 
     let subItems = controlsArray.map((formControl) => ({
       name: formControl.value,
-    }))
-    if (this.notesControl.value!.length > 0) subItems.push({ name: this.notesControl.value });
+    }));
+    if (this.notesControl.value!.length > 0)
+      subItems.push({ name: this.notesControl.value });
 
     this.addCallback({
       name: this.menuItem.name,
