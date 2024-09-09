@@ -1,8 +1,8 @@
 <mat-list-item>
   <span matListItemTitle>
     <span>{{ orderItem.name }}</span>
-    <span matListItemLine class="button-container">
-      <button mat-icon-button (click)="deleteCallback(index)">
+    <span matListItemLine class="list-right-action-container">
+      <button mat-icon-button type="button" (click)="deleteCallback(index)">
         <mat-icon fontIcon="delete">
           delete
         </mat-icon>
