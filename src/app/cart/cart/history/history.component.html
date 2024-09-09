@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>
+  Order history
+</h2>
+<mat-dialog-content>
+  <mat-list>
+    @for (historyItem of historyItems; track historyItem.orderId) {
+      <mat-list-item>
+        <span matListItemTitle>
+          <span>{{ historyItem.name }}</span>
+          <span matListItemLine class="list-right-action-container">
+            <button mat-icon-button (click)="reprint(historyItem)">
+              <mat-icon fontIcon="print">
+                print
+              </mat-icon>
+            </button>
+          </span>
+        </span>
+      </mat-list-item>
+    }
+  </mat-list>
+</mat-dialog-content>

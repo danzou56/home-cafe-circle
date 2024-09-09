@@ -3,6 +3,7 @@ form {
 
 .submit-container {
   float: right;
+  display: flex;
 }
 
 .header-container h3 {

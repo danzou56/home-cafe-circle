@@ -3,16 +3,19 @@
     <h3>Your Order</h3>
     <span class="submit-container">
       <button
+        type="button"
+        mat-icon-button
+      (click)="openHistory()">
+        <mat-icon fontIcon="history"></mat-icon>
+      </button>
+      <button
         mat-flat-button
+        type="button"
         (click)="submitOrder()"
         [disabled]="isSubmitDisabled"
       >
         Submit
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="send"
-        ></mat-icon>
+        <mat-icon fontIcon="send"></mat-icon>
       </button>
     </span>
   </div>

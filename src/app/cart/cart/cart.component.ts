@@ -8,6 +8,10 @@ import { MatInput } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { OrderItemComponent } from './order-item/order-item.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { HistoryComponent } from './history/history.component';
+import { HistoryItem } from './history/history-item';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -32,6 +36,8 @@ export class CartComponent {
 
   private static baseUrl = 'http://sidewalks-imac.local:5001';
   private http = inject(HttpClient);
+
+  readonly historyDialog: MatDialog = inject(MatDialog);
 
   @Input()
   submitCallback!: (object: Object) => void;
@@ -62,6 +68,7 @@ export class CartComponent {
       .post(
         `${CartComponent.baseUrl}/order`,
         CartComponent.makeOrder(this.customerName.value, this.orderItems),
+        { responseType: 'text' },
       )
       .subscribe(this.submitCallback);
   }
@@ -69,4 +76,44 @@ export class CartComponent {
   deleteCallback: (index: number) => void = (index: number) => {
     this.orderItems.splice(index, 1);
   };
+
+  openHistory(): void {
+    this.http
+      .get<
+        {
+          orderId: string;
+          order: {
+            name: string;
+            items: OrderItem[];
+            timestamp: string;
+          };
+        }[]
+      >(`${CartComponent.baseUrl}/orders`)
+      .subscribe((history) => {
+        let historyItems: HistoryItem[] = history.map((item) => ({
+          orderId: item.orderId,
+          name: item.order.name,
+          timestamp: new Date(Date.parse(item.order.timestamp)),
+          items: item.order.items,
+        }));
+        console.log(history);
+        console.log(historyItems);
+
+        this.historyDialog.open(HistoryComponent, {
+          data: {
+            historyItems: historyItems,
+            reprintCallback: this.reprintCallback,
+          },
+        });
+      });
+  }
+
+  reprintCallback: (historyItem: HistoryItem) => Observable<Object> = (
+    historyItem: HistoryItem,
+  ) =>
+    this.http.post(
+      `${CartComponent.baseUrl}/reprint/${historyItem.orderId}`,
+      this.orderItems,
+      { responseType: 'text' },
+    );
 }
