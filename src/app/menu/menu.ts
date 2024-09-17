@@ -1,5 +1,5 @@
-import { MenuItem } from "./menu-item/menu-item";
-import { FoodType } from "./food-type";
+import { MenuItem } from './menu-item/menu-item';
+import { FoodType } from './food-type';
 
 const menu: MenuItem[] = [
   {
@@ -41,6 +41,12 @@ const menu: MenuItem[] = [
   },
   {
     name: 'pistachio macaron',
+    tipe: FoodType.Food,
+    description: '',
+    radios: [],
+  },
+  {
+    name: 'fruit cup',
     tipe: FoodType.Food,
     description: '',
     radios: [],
