@@ -7,3 +7,7 @@ mat-list-item {
 .list-right-action-container {
   margin-top: 2px;
 }
+
+.mdc-list-item__secondary-text::before {
+  height: 0;
+}
