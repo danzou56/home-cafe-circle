@@ -15,6 +15,9 @@
           [index]="$index"
           [deleteCallback]="deleteCallback"
         />
+        @if (!$last) {
+          <mat-divider></mat-divider>
+        }
       }
     </mat-list>
   </div>

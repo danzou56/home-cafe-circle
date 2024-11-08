@@ -1,4 +1,9 @@
 mat-list-item {
   height: auto !important;
   min-height: var(--mdc-list-list-item-one-line-container-height);
+  padding-top: 2px;
+}
+
+.list-right-action-container {
+  margin-top: 2px;
 }
