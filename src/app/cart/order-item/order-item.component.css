@@ -11,3 +11,7 @@ mat-list-item {
 .mdc-list-item__secondary-text::before {
   height: 0;
 }
+
+li {
+  white-space: normal;
+}
