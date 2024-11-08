@@ -5,3 +5,8 @@
 .menu-item-description {
   white-space: pre-wrap;
 }
+
+mat-list-item {
+  /* default is too large */
+  height: var(--mdc-list-list-item-two-line-container-height) !important;
+}

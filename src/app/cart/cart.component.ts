@@ -8,7 +8,7 @@ import { MatInput } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { OrderItemComponent } from './order-item/order-item.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { HistoryComponent } from './history/history.component';
 import { HistoryItem } from './history/history-item';
 import { Observable } from 'rxjs';

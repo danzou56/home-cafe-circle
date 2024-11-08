@@ -1,0 +1,28 @@
+form {
+
+}
+
+.submit-container {
+  float: right;
+  display: flex;
+  position: fixed;
+  right: 2em;
+  bottom: 1em;
+}
+
+.submit-container button {
+  margin-inline: 4px;
+}
+
+.header-container h3 {
+  display: inline;
+}
+
+.cart-contents-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+mat-form-field {
+  width: 100%;
+}

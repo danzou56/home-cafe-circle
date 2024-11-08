@@ -1,0 +1,36 @@
+<form class="layout-container-half-root">
+  <div class="header-container">
+    <h3>Your Order</h3>
+  </div>
+
+  <div class="cart-contents-container">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="customerName" />
+    </mat-form-field>
+    <mat-list>
+      @for (orderItem of orderItems; track $index) {
+        <app-order-item
+          [orderItem]="orderItem"
+          [index]="$index"
+          [deleteCallback]="deleteCallback"
+        />
+      }
+    </mat-list>
+  </div>
+
+  <div class="submit-container">
+    <button type="button" mat-icon-button (click)="openHistory()">
+      <mat-icon fontIcon="history"></mat-icon>
+    </button>
+    <button
+      mat-flat-button
+      type="button"
+      (click)="submitOrder()"
+      [disabled]="isSubmitDisabled"
+    >
+      Submit
+      <mat-icon fontIcon="send"></mat-icon>
+    </button>
+  </div>
+</form>
