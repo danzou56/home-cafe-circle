@@ -1,5 +1,5 @@
-import { MenuItem } from './menu-item/menu-item';
-import { FoodType } from './food-type';
+import { MenuItem } from "./menu-item/menu-item";
+import { FoodType } from "./food-type";
 
 const menu: MenuItem[] = [
   {
@@ -27,9 +27,9 @@ const menu: MenuItem[] = [
     radios: [],
   },
   {
-    name: 'pumpkin bagel',
+    name: 'pumpkin flagel',
     tipe: FoodType.Food,
-    description: 'Almost certainly misshapen',
+    description: "An unfortunately flat bagel, misshapen by this week's events"
     radios: [],
   },
   {
