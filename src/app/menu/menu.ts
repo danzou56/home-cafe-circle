@@ -49,7 +49,7 @@ const menu: MenuItem[] = [
   {
     name: 'chai',
     tipe: FoodType.Drink,
-    description: 'Chai',
+    description: 'Hot, out of a pot',
     radios: [],
   },
   {
@@ -73,20 +73,20 @@ const menu: MenuItem[] = [
   {
     name: 'apple cider donut',
     tipe: FoodType.Food,
-    description: 'A dessert person recipe',
+    description: 'A cake based donut with cinnamon sugar on top',
     radios: [halvable],
   },
   {
     name: 'apple turnover',
     tipe: FoodType.Food,
-    description: '',
+    description: 'Cinnamon, puff pastry, sweet apple goodness',
     radios: [],
   },
   {
     name: 'pumpkin whoopie pies',
     tipe: FoodType.Food,
-    description: '',
-    radios: [],
+    description: "Cakey oreos but it's pumpkin",
+    radios: [halvable],
   },
 ];
 
