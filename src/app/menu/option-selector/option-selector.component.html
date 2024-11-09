@@ -3,14 +3,20 @@
   <form>
     @for (radio of menuItem.radios; track radio.name) {
       <div>
-        <mat-label>{{ radio.name }}</mat-label>
+        @if (radio.name !== '') {
+          <mat-label>{{ radio.name }}</mat-label>
+        }
         <mat-radio-group
           [formControl]="selectedOptionControls.get(radio.name)!"
         >
           @for (radioOption of radio.options; track radioOption) {
             <mat-radio-button required [value]="radioOption">{{
               radioOption
-            }}</mat-radio-button>
+              }}
+              @if (radioOption === radio.recommended) {
+                <span class="recommendation">(recommended)</span>
+              }
+            </mat-radio-button>
           }
         </mat-radio-group>
         @if (

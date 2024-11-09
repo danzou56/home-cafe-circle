@@ -10,4 +10,6 @@ export interface MenuItem {
 export interface MenuItemRadio {
   readonly name: string;
   readonly options: string[];
+  readonly default?: string;
+  readonly recommended?: string;
 }

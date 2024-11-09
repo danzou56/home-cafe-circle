@@ -46,7 +46,10 @@ export class OptionSelectorComponent {
 
   addInvoked = false;
   selectedOptionControls: Map<string, FormControl> = new Map(
-    this.menuItem.radios?.map((radio) => [radio.name, new FormControl()]),
+    this.menuItem.radios?.map((radio) => [
+      radio.name,
+      new FormControl(radio.default),
+    ]),
   );
   notesControl = new FormControl('');
 
