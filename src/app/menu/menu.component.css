@@ -12,3 +12,14 @@ mat-card:last-of-type {
   margin-bottom: 0;
 }
 
+.menu-root {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+.col:first-child {
+  margin-right: 1em;
+}
