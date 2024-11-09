@@ -57,7 +57,7 @@ const menu: MenuItem[] = [
     radios: [],
   },
   {
-    name: 'smores macaroon',
+    name: 'pumpkin whoopie pies',
     tipe: FoodType.Food,
     description: '',
     radios: [],
