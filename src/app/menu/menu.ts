@@ -29,7 +29,7 @@ const menu: MenuItem[] = [
   {
     name: 'pumpkin bagel',
     tipe: FoodType.Food,
-    description: 'Might be lumpy',
+    description: 'Almost certainly misshapen',
     radios: [],
   },
   {
