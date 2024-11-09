@@ -55,7 +55,7 @@ const menu: MenuItem[] = [
   {
     name: 'pumpkin flagel',
     tipe: FoodType.Food,
-    description: "An unfortunately flat bagel, misshapen by this week's events",
+    description: "An unfortunately flat bagel, misshapen by the week's events",
     radios: [halvable],
   },
   {
