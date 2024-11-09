@@ -40,6 +40,9 @@ export class MenuComponent {
   drinkItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Drink;
   });
+  snackItems = this.menu.filter((item) => {
+    return item.tipe == FoodType.Snack;
+  });
 
   addMenuItemCallback: (menuItem: MenuItem) => void = (menuItem) => {
     this.orderOptionsDialog.open(OptionSelectorComponent, {

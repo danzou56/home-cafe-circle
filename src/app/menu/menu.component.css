@@ -5,5 +5,10 @@
 mat-card {
   padding: 1em;
   padding-bottom: 0;
+  margin-bottom: 1em;
+}
+
+mat-card:last-of-type {
+  margin-bottom: 0;
 }
 

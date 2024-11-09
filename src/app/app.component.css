@@ -15,10 +15,6 @@ mat-toolbar h2 {
   font-size: 2em;
 }
 
-mat-toolbar span.smaller {
-  font-size: .75em;
-}
-
 mat-toolbar button {
   --mat-icon-button-ripple-color: #888;
   --mat-icon-button-state-layer-color: white;

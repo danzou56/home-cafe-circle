@@ -1,5 +1,7 @@
 <div class="layout-container-half-root">
-  <mat-card style="margin-bottom:1em;" appearance="outlined">
+
+  <!-- Drinks -->
+  <mat-card appearance="outlined">
     <mat-card-header>
       <h3>Drinks</h3>
     </mat-card-header>
@@ -14,6 +16,8 @@
       </mat-list>
     </mat-card-content>
   </mat-card>
+
+  <!-- Food -->
   <mat-card appearance="outlined">
     <mat-card-header>
       <h3>Food</h3>
@@ -29,4 +33,22 @@
       </mat-list>
     </mat-card-content>
   </mat-card>
+
+  <!-- Self Serve -->
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <h3>Snacks <span class="smaller">(Self-Serve)</span></h3>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        @for (food of snackItems; track food.name) {
+          <app-menu-item
+            [menuItem]="food"
+            [addCallback]="addMenuItemCallback"
+          />
+        }
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
 </div>
