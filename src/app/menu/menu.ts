@@ -61,7 +61,8 @@ const menu: MenuItem[] = [
   {
     name: 'fall foccacia sandwich',
     tipe: FoodType.Food,
-    description: 'Turkey, apple, cheddar, mustard, mayo, chips, and leaves',
+    description:
+      'Turkey, apple, cheddar, dijon mustard, mayo, chips, and leaves',
     radios: [halvable],
   },
   {
