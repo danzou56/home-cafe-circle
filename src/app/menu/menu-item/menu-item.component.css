@@ -7,6 +7,7 @@
 }
 
 mat-list-item {
+  padding-left: 0;
   /* default is too large */
   height: var(--mdc-list-list-item-two-line-container-height) !important;
 }
