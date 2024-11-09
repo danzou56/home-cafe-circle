@@ -1,3 +1,26 @@
 mat-drawer-container {
   height: 100%;
 }
+
+mat-toolbar {
+  padding: 1.5em;
+  background: rgb(62, 67, 202);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+mat-toolbar h2 {
+  font-size: 2em;
+}
+
+mat-toolbar span.smaller {
+  font-size: .75em;
+}
+
+mat-toolbar button {
+  --mat-icon-button-ripple-color: #888;
+  --mat-icon-button-state-layer-color: white;
+  color: #eee;
+}

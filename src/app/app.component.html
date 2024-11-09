@@ -1,6 +1,13 @@
 <mat-drawer-container>
   <mat-drawer-content>
-    <app-menu [addCallback]="addToCartCallback" [cartOpenCallback]="cartCallback" />
+    <mat-toolbar style="background: rgb(62, 67, 202)">
+      <h2>AlliCafei <span class="smaller">· Menu</span></h2>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="cartCallback()">
+        <mat-icon fontIcon="shopping_cart"> cart</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-menu [addCallback]="addToCartCallback" />
   </mat-drawer-content>
   <mat-drawer mode="side" [opened]="isCartOpen" position="end">
     <app-cart [submitCallback]="submitOrderCallback" />

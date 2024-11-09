@@ -3,9 +3,19 @@ import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { OrderItem } from './cart/order-item/order-item';
+import { MatIcon } from '@angular/material/icon';
+import { MatIconButton } from '@angular/material/button';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
-  imports: [MenuComponent, CartComponent, MatSidenavModule],
+  imports: [
+    MenuComponent,
+    CartComponent,
+    MatSidenavModule,
+    MatIcon,
+    MatIconButton,
+    MatToolbar,
+  ],
   selector: 'app-root',
   standalone: true,
   styleUrl: './app.component.css',

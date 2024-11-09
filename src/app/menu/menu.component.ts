@@ -34,9 +34,6 @@ export class MenuComponent {
   @Input()
   readonly menu: MenuItem[] = menuData;
 
-  @Input()
-  cartOpenCallback!: () => void;
-
   foodItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Food;
   });
