@@ -34,7 +34,7 @@ export class CartComponent {
   isSubmitDisabled = false;
   customerName: FormControl = new FormControl('');
 
-  private static baseUrl = 'http://benji.local:5001';
+  private static baseUrl = 'http://benji.local:5002';
   private http = inject(HttpClient);
 
   readonly historyDialog: MatDialog = inject(MatDialog);
