@@ -15,79 +15,79 @@ const menu: MenuItem[] = [
     radios: [
       { name: 'hot/iced', options: ['hot', 'iced'] },
       {
-        name: 'milk',
-        options: ['2%', 'oat'],
-        default: '2%',
-        recommended: '2%',
+        name:"milk"',
+        options: "2%"',"oat"'],
+        default:"2%"',
+        recommended:"2%",
       },
       {
         name:"flavor"',
         options: "regular"',"vanilla"'],
         default:"regular",
-      },
+      }
     ],
   },
   {
-    name: "matcha latte",
+    'matcha latte',
     tipe: FoodType.Drink,
-    description: "The flavor of grass",
+    description: 'The flavor of grass',
     radios: [
-      { name: "hot/iced", options: ["hot", "iced"] },
+      { name: 'hot/iced', options: ['hot', 'iced'] },
       {
-        name: 'milk',
-        options: ['2%', 'oat'],
-        default: 'oat',
-        recommended: 'oat',
+        name: "milk",
+        options: ["2%", "oat"],
+        default: "oat",
+        recommended: "oat"
       },
       {
-        name: 'flavor',
-        options: ['regular', 'maple'],
-        default: 'regular',
-      },
+        name: "flavor",
+        options: ["regular", "maple"],
+        default: "regular"
+      }
     ],
   },
   {
-    name: "chai",
+    'chai',
     tipe: FoodType.Drink,
-    description: "Chai",
-    radios: []
+    description: 'Chai',
+    radios: [],
   },
   {
-    name: "pumpkin flagel",
+    'pumpkin flagel',
     tipe: FoodType.Food,
     description: "An unfortunately flat bagel, misshapen by this week's events",
-    radios: [halvable]
+    radios: [halvable],
   },
   {
-    name: "fall foccacia sandwich",
+    'fall foccacia sandwich',
     tipe: FoodType.Food,
-    description: "Turkey, apple, cheddar, fig jam, mayo, and leaves",
-    radios: [halvable]
+    description: 'Turkey, apple, cheddar, fig jam, mayo, and leaves',
+    radios: [halvable],
   },
   {
-    name: "booberry hand pies",
+    'booberry hand pies',
     tipe: FoodType.Food,
     description: "Spooky season hasn't ended yet!",
-    radios: [halvable]
+    radios: [halvable],
   },
   {
-    name: "apple cider donut",
+    'apple cider donut',
     tipe: FoodType.Food,
-    description: "A dessert person recipe",
-    radios: [halvable]
+    description: 'A dessert person recipe',
+    radios: [halvable],
   },
   {
-    name: "apple turnover",
+    'apple turnover',
     tipe: FoodType.Food,
-    description: "",
-    radios: []
+    description: '',
+    radios: [],
   },
   {
-    name: "pumpkin whoopie pies",
+    'pumpkin whoopie pies',
     tipe: FoodType.Food,
-    description: "",
-    radios: []
+    description: '',
+    radios: [],
   },
-];
+]
 
 export { menu };
