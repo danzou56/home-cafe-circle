@@ -28,4 +28,9 @@ export class AppComponent {
       this.cartComponent.isSubmitDisabled = false;
     }, 3000);
   };
+
+  isCartOpen = true;
+  cartCallback: () => void = () => {
+    this.isCartOpen = !this.isCartOpen;
+  };
 }

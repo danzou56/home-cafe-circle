@@ -1,3 +1,23 @@
+mat-toolbar {
+  padding: 1.5em;
+  background: rgb(62, 67, 202);
+  color: white;
+}
+
+mat-toolbar h2 {
+  font-size: 2em;
+}
+
+mat-toolbar span.smaller {
+  font-size: .75em;
+}
+
+mat-toolbar button {
+  --mat-icon-button-ripple-color: #888;
+  --mat-icon-button-state-layer-color: white;
+  color: #eee;
+}
+
 .quantity-container {
   float: right;
 }
@@ -5,4 +25,8 @@
 mat-card {
   padding: 1em;
   padding-bottom: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

@@ -8,11 +8,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { OptionSelectorComponent } from './option-selector/option-selector.component';
 import { MenuItem } from './menu-item/menu-item';
 import { menu as menuData } from './menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MatCardModule, MatListModule, MenuItemComponent],
+  imports: [
+    MatCardModule,
+    MatListModule,
+    MenuItemComponent,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
 })
@@ -23,6 +33,9 @@ export class MenuComponent {
   addCallback!: (orderItem: OrderItem) => void;
   @Input()
   readonly menu: MenuItem[] = menuData;
+
+  @Input()
+  cartOpenCallback!: () => void;
 
   foodItems = this.menu.filter((item) => {
     return item.tipe == FoodType.Food;
