@@ -11,7 +11,7 @@ const menu: MenuItem[] = [
   {
     name: 'latte',
     tipe: FoodType.Drink,
-    description: 'It might be shit',
+    description: 'It might be shit, optionally with vanilla',
     radios: [
       { name: 'hot/iced', options: ['hot', 'iced'] },
       {
@@ -30,7 +30,7 @@ const menu: MenuItem[] = [
   {
     name: 'matcha latte',
     tipe: FoodType.Drink,
-    description: 'The flavor of grass',
+    description: 'The flavor of grass or maple grass',
     radios: [
       { name: 'hot/iced', options: ['hot', 'iced'] },
       {
@@ -83,7 +83,7 @@ const menu: MenuItem[] = [
     tipe: FoodType.Snack,
     description: 'Cinnamon, puff pastry, sweet apple goodness',
     radios: [],
-    unavailable: tru,
+    unavailable: true,
   },
   {
     name: 'pumpkin whoopie pies',
