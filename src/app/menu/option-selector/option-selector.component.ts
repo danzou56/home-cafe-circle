@@ -66,6 +66,7 @@ export class OptionSelectorComponent {
 
     this.addCallback({
       name: this.menuItem.name,
+      type: this.menuItem.tipe,
       subItems: subItems,
     });
     this.dialogRef.close();

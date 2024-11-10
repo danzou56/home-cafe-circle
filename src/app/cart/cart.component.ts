@@ -56,6 +56,7 @@ export class CartComponent {
       name: name,
       items: orderItems.map((orderItem) => ({
         name: orderItem.name,
+        type: orderItem.type?.toString(),
         sub_items: orderItem.subItems?.map((subItem) => ({
           name: subItem.name,
         })),

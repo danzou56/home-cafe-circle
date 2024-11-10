@@ -52,4 +52,11 @@ export class MenuComponent {
       },
     });
   };
+
+  directAddCallback: (menuItem: MenuItem) => void = (menuItem) => {
+    this.addCallback({
+      name: menuItem.name,
+      type: menuItem.tipe,
+    });
+  };
 }

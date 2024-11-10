@@ -49,7 +49,7 @@
           @for (food of snackItems; track food.name) {
             <app-menu-item
               [menuItem]="food"
-              [addCallback]="addMenuItemCallback"
+              [addCallback]="directAddCallback"
             />
           }
         </mat-list>
