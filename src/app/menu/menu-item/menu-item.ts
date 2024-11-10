@@ -5,6 +5,7 @@ export interface MenuItem {
   readonly tipe: FoodType;
   readonly description: string;
   readonly radios?: MenuItemRadio[];
+  readonly unavailable?: boolean;
 }
 
 export interface MenuItemRadio {

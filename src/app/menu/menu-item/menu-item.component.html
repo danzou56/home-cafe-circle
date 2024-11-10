@@ -1,10 +1,17 @@
 <mat-list-item>
   <span matListItemTitle>
-    <h6 class="menu-item-name">{{ menuItem.name }}</h6>
+    <h6 class="menu-item-name">
+      {{ menuItem.name }}
+      @if (menuItem.unavailable === true) {
+        <span class="smaller">(Currently unavailable)</span>
+      }
+    </h6>
     <span matListItemLine class="list-right-action-container">
+      @if (menuItem.unavailable !== true) {
       <button mat-icon-button (click)="addCallback(menuItem)">
         <mat-icon fontIcon="add"> add </mat-icon>
       </button>
+      }
     </span>
   </span>
 
