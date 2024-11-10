@@ -64,7 +64,7 @@ const menu: MenuItem[] = [
     tipe: FoodType.Food,
     description:
       'Turkey, apple, cheddar, dijon mustard, mayo, chips, and leaves',
-    radios: [halvable],
+    radios: [],
   },
   {
     name: 'booberry hand pies',
