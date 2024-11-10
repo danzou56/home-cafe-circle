@@ -83,14 +83,12 @@ const menu: MenuItem[] = [
     tipe: FoodType.Snack,
     description: 'Cinnamon, puff pastry, sweet apple goodness',
     radios: [],
-    unavailable: true,
   },
   {
     name: 'pumpkin whoopie pies',
     tipe: FoodType.Snack,
     description: "Cakey oreos but it's pumpkin",
     radios: [halvable],
-    unavailable: true,
   },
 ];
 
